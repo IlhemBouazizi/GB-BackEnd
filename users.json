@@ -1,0 +1,47 @@
+[
+    {
+        "nom": "Bouraoui",
+        "prenom":"Ali",
+        "email":"ali.bouraoui@gmail.com",
+        "tel":"0021625457896",
+        "matricule":"456789",
+        "motpass":"1111",
+        "role":"AGENT" 
+
+    },
+    {
+        "nom": "Martin",
+        "prenom":"Jack",
+        "email":"jack.martin@gmail.com",
+        "tel":"000932654875",
+        "motpass":"2222",
+        "role":"CLIENT",
+        "status": "ATTENTE"  
+    },
+    {
+        "nom": "Marron",
+        "prenom":"Cristine",
+        "email":"cristine.maron@gmail.com",
+        "tel":"0087956412",
+        "motpass":"3333",
+        "role":"CLIENT" , 
+        "status": "VALIDE"
+    },
+    {
+        "nom": "Bouraoui",
+        "prenom":"Ali",
+        "email":"ali.bouraoui@gmail.com",
+        "tel":"0021625457896",
+        "matricule":"1234567",
+        "motpass":"4444",
+        "role":"AGENT" 
+    },
+    {
+        "nom": "Ben Salah",
+        "prenom":"Mohamed",
+        "email":"mohamed.bensalah@gmail.com",
+        "tel":"0021655875469",
+        "motpass":"5555",
+        "role":"ADMIN" 
+    }
+]

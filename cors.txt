@@ -1,0 +1,15 @@
+npm install  cors --save
+
+
+in server.js add 
+
+const cors = require("cors");
+
+
+var corsOptions = {
+  origin: "http://localhost:4200"
+};
+
+
+
+app.use(cors(corsOptions));
