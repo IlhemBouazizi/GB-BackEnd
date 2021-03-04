@@ -28,15 +28,6 @@
         "status": "VALIDE"
     },
     {
-        "nom": "Bouraoui",
-        "prenom":"Ali",
-        "email":"ali.bouraoui@gmail.com",
-        "tel":"0021625457896",
-        "matricule":"1234567",
-        "motpass":"4444",
-        "role":"AGENT" 
-    },
-    {
         "nom": "Ben Salah",
         "prenom":"Mohamed",
         "email":"mohamed.bensalah@gmail.com",

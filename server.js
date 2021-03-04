@@ -35,7 +35,7 @@ MongoClient.connect(url, function(err, client) {
 
 //******************* */  Les API Rest des Clients //******************* */
 
-// Tous les clients
+// Liste de tous les clients
 app.get('/clients/list/', (req,res) => {
       db.collection('users').find({"role": "CLIENT"}).toArray(function(err, docs) {
           if (err) {
@@ -46,9 +46,9 @@ app.get('/clients/list/', (req,res) => {
         }) 
     })
     
-// Tous les clients avec status en attente
+// liste de tous les clients avec statut en attente
 app.get('/clients/list/attente', (req,res) => {
-          db.collection('users').find({"role": "CLIENT","status":"EN ATTENTE"}).toArray(function(err, docs) {
+          db.collection('users').find({"role": "CLIENT","statut":"ATTENTE"}).toArray(function(err, docs) {
               if (err) {
                   console.log(err)
                   throw err
@@ -57,9 +57,9 @@ app.get('/clients/list/attente', (req,res) => {
             }) 
 })
 
-// Tous les clients avec status validé
+// liste de tous les clients avec statut validé
 app.get('/clients/list/valide', (req,res) => {
-      db.collection('users').find({"role": "CLIENT","status":"VALIDE"}).toArray(function(err, docs) {
+      db.collection('users').find({"role": "CLIENT","statut":"VALIDE"}).toArray(function(err, docs) {
           if (err) {
               console.log(err)
               throw err
@@ -69,7 +69,7 @@ app.get('/clients/list/valide', (req,res) => {
 })
 
 
-// inscription d'un nouveau client
+// ajout d'un nouveau client
 app.post('/clients/add/',  async (req,res) => {
       
        try {
@@ -82,23 +82,46 @@ app.post('/clients/add/',  async (req,res) => {
           } 
     })
 
-
-/*
-    app.get('/users/:id', async (req,res) => {
-          const id = parseInt(req.params.id)
+// ajout d'un nouveau agent
+app.post('/agent/add/',  async (req,res) => {
+      
+    try {
+           const newAgent = req.body
+           const addedAgent = await db.collection('users').insertOne(newAgent)
+           res.status(200).json(addedAgent)
+       } catch (err) {
+           console.log(err)
+           throw err
+       } 
+ })
+// récupérer tous les AGENTs 
+app.get('/agent/list', (req,res) => {
+    db.collection('users').find({"role": "AGENT"}).toArray(function(err, docs) {
+        if (err) {
+            console.log(err)
+            throw err
+        }
+        res.status(200).json(docs)
+      }) 
+})
+// récupérer un user  
+    app.get('/users/:mail', async (req,res) => {
+          const mail = req.params.mail
           try {
-              const docs = await db.collection('user').find({id}).toArray()
+              const docs = await db.collection('users').find({"email":mail}).toArray()
+              console.log(mail)
               res.status(200).json(docs)
           } catch (err) {
               console.log(err)
               throw err
           }
         })
-        
+
+      /*  
         app.post('/users/add/', async (req,res) => {
               try {
                   const equipeData = req.body
-                  const equipe = await db.collection('user').insertOne(equipeData)
+                  const equipe = await db.collection('users').insertOne(equipeData)
                   res.status(200).json(equipe)
               } catch (err) {
                   console.log(err)
