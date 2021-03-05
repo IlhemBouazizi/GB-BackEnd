@@ -105,12 +105,13 @@ app.get('/agent/list', (req,res) => {
       }) 
 })
 // récupérer un user  
-    app.get('/users/:mail', async (req,res) => {
-          const mail = req.params.mail
-          try {
-              const docs = await db.collection('users').find({"email":mail}).toArray()
-              console.log(mail)
-              res.status(200).json(docs)
+    app.get('/users/:email', async (req,res) => {
+         
+          try { 
+              const email = req.params.email
+              const user = await db.collection('users').findOne({email})
+              console.log(email)
+              res.status(200).json(user)
           } catch (err) {
               console.log(err)
               throw err
