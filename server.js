@@ -4,6 +4,7 @@ const cors = require("cors");
 
 app.use(express.json());
 
+var nodemailer = require('nodemailer');
 
 var corsOptions = {
     //origin: "http://localhost:4200"
@@ -76,6 +77,38 @@ app.post('/clients/add/',  async (req,res) => {
               const newClient = req.body
               const addedClient = await db.collection('users').insertOne(newClient)
               res.status(200).json(addedClient)
+              
+              //// send email //////////////////////////////////////////////////// 
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'ilhem.bouazizi@gmail.com',
+      pass: 'assouyassou'
+    }
+  });
+
+  
+  var password = "abc123";
+  var mailOptions = {
+    from: 'ilhem.bouazizi@gmail.com',
+    to: req.body.email,
+    subject: 'Validation de création de compte GestiBank',
+    text: 'Félicitations votre compte a été créer avec succès, Login : '+ req.body.email +" Votre mot de passe :"+password
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+
+///////////////////////////////////////////////////
+
+              
+              
+              
           } catch (err) {
               console.log(err)
               throw err
