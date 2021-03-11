@@ -1,38 +1,162 @@
-[
-    {
-        "nom": "Bouraoui",
-        "prenom":"Ali",
-        "email":"ali.bouraoui@gmail.com",
-        "tel":"0021625457896",
-        "matricule":"456789",
-        "motpass":"1111",
-        "role":"AGENT" 
-
-    },
-    {
-        "nom": "Martin",
-        "prenom":"Jack",
-        "email":"jack.martin@gmail.com",
-        "tel":"000932654875",
-        "motpass":"2222",
-        "role":"CLIENT",
-        "status": "ATTENTE"  
-    },
-    {
-        "nom": "Marron",
-        "prenom":"Cristine",
-        "email":"cristine.maron@gmail.com",
-        "tel":"0087956412",
-        "motpass":"3333",
-        "role":"CLIENT" , 
-        "status": "VALIDE"
-    },
-    {
-        "nom": "Ben Salah",
-        "prenom":"Mohamed",
-        "email":"mohamed.bensalah@gmail.com",
-        "tel":"0021655875469",
-        "motpass":"5555",
-        "role":"ADMIN" 
-    }
-]
+[{
+  "_id": {
+    "$oid": "603e658dddda2b13f1a2694b"
+  },
+  "prenom": "ag3",
+  "email": "ag3@gmail.com",
+  "tel": "3",
+  "matricule": "3",
+  "role": "AGENT",
+  "name": "ag3",
+  "password": "ag3"
+},{
+  "_id": {
+    "$oid": "603e658dddda2b13f1a2694c"
+  },
+  "prenom": "cl3",
+  "email": "cl3@gmail.com",
+  "tel": "3",
+  "role": "CLIENT",
+  "statut": "VALIDE",
+  "name": "cl3",
+  "password": "cl3"
+},{
+  "_id": {
+    "$oid": "603e658dddda2b13f1a2694f"
+  },
+  "prenom": "admin",
+  "email": "admin",
+  "tel": "45884",
+  "role": "ADMIN",
+  "matricule": "45789",
+  "name": "admin",
+  "password": "admin"
+},{
+  "_id": {
+    "$oid": "603f6826aabbd221556856a4"
+  },
+  "prenom": "ag4",
+  "email": "ag4@gmail.com",
+  "tel": "4",
+  "role": "AGENT",
+  "password": "ag4",
+  "name": "ag4",
+  "matricule": "4"
+},{
+  "_id": {
+    "$oid": "603f699aaabbd221556856a5"
+  },
+  "email": "ag5@gmail.com",
+  "matricule": "5",
+  "name": "ag5",
+  "password": "5",
+  "prenom": "ag5",
+  "role": "AGENT",
+  "tel": "5"
+},{
+  "_id": {
+    "$oid": "6049062b59f1be487e291cea"
+  },
+  "name": "cl4",
+  "prenom": "cl4",
+  "tel": "4",
+  "email": "cl4@gmail.com",
+  "role": "CLIENT",
+  "statut": "ATTENTE",
+  "typeCompte": "SAVINGS",
+  "password": "4"
+},{
+  "_id": {
+    "$oid": "6049068b59f1be487e291ceb"
+  },
+  "name": "cl1",
+  "prenom": "cl1",
+  "tel": "1",
+  "email": "cl1@gmail.com",
+  "role": "CLIENT",
+  "statut": "ATTENTE",
+  "typeCompte": "SAVINGS",
+  "password": "cl1"
+},{
+  "_id": {
+    "$oid": "6049145d1c8ea4300aab1e49"
+  },
+  "name": "ag1",
+  "prenom": "ag1",
+  "tel": "1",
+  "email": "ag1@gmail.com",
+  "role": "AGENT",
+  "password": "ag117",
+  "matricule": "ag1"
+},{
+  "_id": {
+    "$oid": "604914ae1c8ea4300aab1e4a"
+  },
+  "name": "ag6",
+  "prenom": "ag6",
+  "tel": "6",
+  "email": "ag6@gmail.com",
+  "role": "AGENT",
+  "password": "ag6",
+  "matricule": "ag6"
+},{
+  "_id": {
+    "$oid": "6049c3f91c8ea4300aab1e4b"
+  },
+  "name": "cl5",
+  "prenom": "cl5",
+  "tel": "5",
+  "email": "cl5@gmail.com",
+  "role": "CLIENT",
+  "statut": "ATTENTE",
+  "typeCompte": "SAVINGS",
+  "password": "cl51"
+},{
+  "_id": {
+    "$oid": "6049c4f91c8ea4300aab1e4c"
+  },
+  "name": "cl6",
+  "prenom": "cl6",
+  "tel": "6",
+  "email": "cl6@gmail.com",
+  "role": "CLIENT",
+  "statut": "ATTENTE",
+  "typeCompte": "CLASSIC",
+  "password": "cl69"
+},{
+  "_id": {
+    "$oid": "6049c56a1c8ea4300aab1e4d"
+  },
+  "name": "cl7",
+  "prenom": "cl7",
+  "tel": "7",
+  "email": "cl7@gmail.com",
+  "role": "CLIENT",
+  "statut": "ATTENTE",
+  "typeCompte": "SAVINGS",
+  "password": "cl75"
+},{
+  "_id": {
+    "$oid": "6049c5961c8ea4300aab1e4e"
+  },
+  "name": "cl8",
+  "prenom": "cl8",
+  "tel": "575",
+  "email": "cl8@gmail.com",
+  "role": "CLIENT",
+  "statut": "ATTENTE",
+  "typeCompte": "CLASSIC",
+  "password": "cl814"
+},{
+  "_id": {
+    "$oid": "6049c6501c8ea4300aab1e4f"
+  },
+  "name": "cl8",
+  "prenom": "cl8",
+  "tel": "8",
+  "email": "cl8",
+  "role": "CLIENT",
+  "statut": "ATTENTE",
+  "typeCompte": "CLASSIC",
+  "password": "cl82"
+}]
