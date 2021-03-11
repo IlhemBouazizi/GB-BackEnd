@@ -50,7 +50,7 @@ app.get('/clients/list/', (req,res) => {
     
 // liste de tous les clients avec statut en attente
 app.get('/clients/list/attente', (req,res) => {
-          db.collection('users').find({"role": "CLIENT","statut":"ATTENTE"}).toArray(function(err, docs) {
+          db.collection('users').find({"role": "CLIENT","statut":"ATTENTE","agentMatricule":""}).toArray(function(err, docs) {
               if (err) {
                   console.log(err)
                   throw err
@@ -70,7 +70,29 @@ app.get('/clients/list/valide', (req,res) => {
         }) 
 })
 
+// liste de tous les clients avec statut attente et affecté à un agent
+app.get('/clients/affecter/:matricule', (req,res) => {
+    const matric = req.params.matricule
+    db.collection('users').find({"role": "CLIENT","statut":"ATTENTE","agentMatricule":matric}).toArray(function(err, docs) {
+        if (err) {
+            console.log(err)
+            throw err
+        }
+        res.status(200).json(docs)
+      }) 
+})
 
+// liste de tous les clients avec statut attente
+app.get('/clients/affecter', (req,res) => {
+    const matric = req.params.matricule
+    db.collection('users').find({"role": "CLIENT","statut":"ATTENTE"}).toArray(function(err, docs) {
+        if (err) {
+            console.log(err)
+            throw err
+        }
+        res.status(200).json(docs)
+      }) 
+})
 // ajout d'un nouveau client
 app.post('/clients/add/',  async (req,res) => {
       
@@ -155,7 +177,7 @@ app.get('/agent/list', (req,res) => {
         res.status(200).json(docs)
       }) 
 })
-// récupérer un user  
+// récupérer un client par son email  
     app.get('/clients/:email', async (req,res) => {
          
           try { 
@@ -193,8 +215,38 @@ app.get('/agent/list', (req,res) => {
                       } 
                     })
 
-        //modifier un agent
-        app.put('/agent/:mail', async (req,res) => {
+    
+//modifier un client
+app.put('/clients/:mail', async (req,res) => {
+    try {
+        const mail = req.params.mail;
+        const replacementClient = req.body
+        console.log("1")
+        console.log(mail)
+        console.log("2")
+        console.log(replacementClient)
+        const client = await db.collection('users').replaceOne(
+            { "email" : mail },
+            { "email" : mail, 
+              "name" : replacementClient.name, 
+              "prenom" : replacementClient.prenom, 
+              "tel" : replacementClient.tel, 
+              "statut" : replacementClient.statut, 
+              "agentMatricule" : replacementClient.agentMatricule,
+              "typeCompte" : replacementClient.typeCompte,
+              "password" : replacementClient.password,
+              "role" : replacementClient.role            
+            })
+        res.status(200).json(client)
+        
+    } catch (err) {
+        console.log(err)
+        throw err
+    }
+  })     
+  
+         //modifier un agent
+       /* app.put('/agent/:mail', async (req,res) => {
             try {
                 const mail = parseInt(req.params.id)
                 const replacementAgent = req.body
@@ -204,17 +256,5 @@ app.get('/agent/list', (req,res) => {
                 console.log(err)
                 throw err
             }
-          })            
-//modifier un client
-app.put('/clients/:mail', async (req,res) => {
-    try {
-        const mail = req.params.email;
-        const replacementClient = req.body
-        const client = await db.collection('users').replaceOne({mail},replacementClient)
-        res.status(200).json(client)
-    } catch (err) {
-        console.log(err)
-        throw err
-    }
-  })     
-          
+          })      */
+                     
