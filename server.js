@@ -156,12 +156,12 @@ app.get('/agent/list', (req,res) => {
       }) 
 })
 // récupérer un user  
-    app.get('/users/:email', async (req,res) => {
+    app.get('/clients/:email', async (req,res) => {
          
           try { 
               const email = req.params.email
               const user = await db.collection('users').findOne({email})
-              console.log(email)
+              //console.log(email)
               res.status(200).json(user)
           } catch (err) {
               console.log(err)
@@ -180,8 +180,6 @@ app.get('/agent/list', (req,res) => {
                   throw err
               }
             })
-    
-   
     */
    //supprimer un agent
     app.delete('/agent/:mail', async (req,res) => {
@@ -207,3 +205,16 @@ app.get('/agent/list', (req,res) => {
                 throw err
             }
           })            
+//modifier un client
+app.put('/clients/:mail', async (req,res) => {
+    try {
+        const mail = req.params.email;
+        const replacementClient = req.body
+        const client = await db.collection('users').replaceOne({mail},replacementClient)
+        res.status(200).json(client)
+    } catch (err) {
+        console.log(err)
+        throw err
+    }
+  })     
+          
